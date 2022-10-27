@@ -3,7 +3,7 @@
 import sys
 import os
 import unittest
-import numpy as np
+import csv
 import shutil
 import random
 src_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '../..'))
@@ -16,9 +16,14 @@ class TestUtils(unittest.TestCase):
     def setUp(self):
         self.num_rows = random.choice(range(1, 10))
         self.num_cols = random.choice(range(1, 10))
-        self.rand_arr = np.empty((self.num_rows, self.num_cols))
-        np.savetxt('testdata.csv', self.rand_arr, delimiter=',')
-        self.testdata = 'testdata.csv'
+        vals = [0] * self.num_rows
+        for x in range(self.num_rows):
+            vals[x] = [0] * self.num_cols
+        with open('test_data.csv', 'w') as f:
+            writer=csv.writer(f)
+            
+            writer.writerows(vals)
+        self.testdata='test_data.csv'
 
     def test_get_random_matrix(self):
         self.assertTrue(data_processor.get_random_matrix(
