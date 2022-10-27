@@ -4,7 +4,7 @@ test -e ssshtest || wget -q https://raw.githubusercontent.com/ryanlayer/ssshtest
 
 run test_for_success \
     python3 ./plotter.py
-assert_in_stdout 'iris_box_plot.png'
+assert_in_stdout 'iris_boxplot.png'
 assert_in_stdout 'petal_width_v_length_scatter.png'
 assert_in_stdout 'multi_panel_figure.png'
 assert_exit_code 0
