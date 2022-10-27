@@ -27,7 +27,7 @@ class TestUtils(unittest.TestCase):
 
     def test_get_random_matrix(self):
         self.assertTrue(data_processor.get_random_matrix(
-            self.num_rows, self.num_cols).shape == (self.num_rows, 
+            self.num_rows, self.num_cols).shape == (self.num_rows,
                                                     self.num_cols))
         self.assertFalse(data_processor.get_random_matrix(
             self.num_rows, self.num_cols).shape == (11, 11))
@@ -52,7 +52,7 @@ class TestUtils(unittest.TestCase):
             'writetest.csv') == (11, 11))
         self.assertRaises(
             TypeError, data_processor.write_matrix_to_file, 5.1,
-            6.8,'intcheck.csv')
+            6.8, 'intcheck.csv')
         self.assertRaises(
             ValueError, data_processor.write_matrix_to_file,
             -1, 1, 'zerocheck.csv')
