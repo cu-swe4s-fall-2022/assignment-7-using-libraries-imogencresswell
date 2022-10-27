@@ -20,10 +20,10 @@ class TestUtils(unittest.TestCase):
         for x in range(self.num_rows):
             vals[x] = [0] * self.num_cols
         with open('test_data.csv', 'w') as f:
-            writer=csv.writer(f)
-            
+            writer = csv.writer(f)
+
             writer.writerows(vals)
-        self.testdata='test_data.csv'
+        self.testdata = 'test_data.csv'
 
     def test_get_random_matrix(self):
         self.assertTrue(data_processor.get_random_matrix(
